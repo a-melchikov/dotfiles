@@ -2,13 +2,13 @@
 
 # Функция для установки пакетов на RedOS
 install_redos() {
-    sudo dnf install neofetch lolcat cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ -y
+    sudo dnf install neofetch lolcat cmake freetype-devel fontconfig-devel libxcb-devel libxkbcommon-devel g++ scdoc -y
     curl https://pyenv.run | bash
 }
 
 # Функция для установки пакетов на Arch и Manjaro
 install_arch_manjaro() {
-    sudo pacman -S neofetch lolcat cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python --noconfirm
+    sudo pacman -S neofetch lolcat cmake freetype2 fontconfig pkg-config make libxcb libxkbcommon python scdoc --noconfirm
     curl https://pyenv.run | bash
 }
 
@@ -18,8 +18,9 @@ install_alacritty() {
         echo "Rust и Cargo не установлены. Устанавливаем..."
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         source $HOME/.cargo/env
+        exec $SHELL
     fi
-    
+
     # Проверяем, существует ли каталог alacritty и удаляем его, если он существует
     if [ -d "alacritty" ]; then
         rm -rf alacritty
@@ -59,7 +60,7 @@ install_alacritty() {
 # Функция для копирования конфигурации alacritty
 copy_alacritty_config() {
     mkdir -p ~/.config/alacritty
-    cp -r ./alacritty_conf ~/.config/alacritty/
+    cp ./alacritty.yml ~/.config/alacritty/
 }
 
 # Определяем дистрибутив
@@ -92,7 +93,10 @@ case $DISTRO in
         ;;
 esac
 
+# Устанавливаем alacritty через cargo
 install_alacritty
+
+# Копируем конфигурацию alacritty
 copy_alacritty_config
 
 source ~/.zshrc
