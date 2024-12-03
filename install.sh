@@ -20,7 +20,11 @@ install_alacritty() {
         source $HOME/.cargo/env
     fi
 
-    cargo install alacritty
+    # Клонируем репозиторий alacritty
+    git clone https://github.com/alacritty/alacritty.git
+    cd alacritty
+
+    cargo build --release
 
     # Установка terminfo
     sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
@@ -43,10 +47,13 @@ install_alacritty() {
     mkdir -p ${ZDOTDIR:-~}/.zsh_functions
     echo 'fpath+=${ZDOTDIR:-~}/.zsh_functions' >> ${ZDOTDIR:-~}/.zshrc
     cp extra/completions/_alacritty ${ZDOTDIR:-~}/.zsh_functions/_alacritty
+
+    cd ..
 }
 
 # Функция для копирования конфигурации alacritty
 copy_alacritty_config() {
+    mkdir -p ~/.config/alacritty
     cp -r ./alacritty ~/.config/alacritty/
 }
 

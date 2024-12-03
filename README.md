@@ -8,6 +8,7 @@ This repository contains my personal configuration files.
 - `.zsh_history`: Zsh command history file.
 - `.oh-my-zsh`: Directory containing Oh My Zsh configurations and plugins.
 - `install.sh`: Installation script to set up the environment on a new machine.
+- `alacritty`
 
 ## Installation
 
