@@ -19,6 +19,11 @@ install_alacritty() {
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
         source $HOME/.cargo/env
     fi
+    
+    # Проверяем, существует ли каталог alacritty и удаляем его, если он существует
+    if [ -d "alacritty" ]; then
+        rm -rf alacritty
+    fi
 
     # Клонируем репозиторий alacritty
     git clone https://github.com/alacritty/alacritty.git
@@ -54,7 +59,7 @@ install_alacritty() {
 # Функция для копирования конфигурации alacritty
 copy_alacritty_config() {
     mkdir -p ~/.config/alacritty
-    cp -r ./alacritty ~/.config/alacritty/
+    cp -r ./alacritty_conf ~/.config/alacritty/
 }
 
 # Определяем дистрибутив
