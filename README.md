@@ -11,6 +11,9 @@ This repository contains my personal configuration files.
 - `alacritty`
 - `tmux`
 
+### Additional libraries
+bat, exa, htop, git, vim
+
 ## Installation
 
 To set up the environment on a new machine, follow these steps:
