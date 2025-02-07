@@ -76,11 +76,11 @@ else
 fi
 
 # Перемещаем файлы в нужные директории
-cp ./.zshrc ~/ 2>/dev/null || true
+mv ./.zshrc ~/ 2>/dev/null || true
 
 # Проверяем, существует ли каталог .oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
-    cp ./.oh-my-zsh ~/
+    mv ./.oh-my-zsh ~/
 fi
 
 # Устанавливаем необходимые пакеты в зависимости от дистрибутива
