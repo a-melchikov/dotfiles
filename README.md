@@ -2,6 +2,16 @@
 
 This repository contains my personal configuration files.
 
+## Applications
+
+- `vim`, `vs code`, `pycharm`
+- `git`
+- `pyenv`, `uv`
+- `postman`
+- `VirtualBox`
+- `postgresql`, `DBeaver`
+- `poetry`
+
 ## Contents
 
 - `.zshrc`: Zsh configuration file.
@@ -11,7 +21,8 @@ This repository contains my personal configuration files.
 - `alacritty`
 - `tmux`
 
-### Additional libraries
+## Additional libraries
+
 bat, exa, htop, git, vim, postgresql, curl, wget, fzf, gcc, g++, make, python3, docker, docker-compose,
 pyenv, uv, net-tools
 
@@ -36,7 +47,7 @@ sudo apt update && sudo apt install -y \
     libjpeg-dev libpng-dev libfreetype6-dev
 ```
 
-https://github.com/thoughtbot/dotfiles
+<https://github.com/thoughtbot/dotfiles>
 
 ## Installation
 
